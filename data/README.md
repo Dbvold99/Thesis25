@@ -1,0 +1,1 @@
+Please run src.automate_scripts.init to create folders required
