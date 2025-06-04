@@ -1,0 +1,58 @@
+[build-system]        
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+authors = [
+  {name = "Stina Brunzell"},
+  {name = "Lisa Thunegard"},
+  {name = "Irina Frick"},
+  {name = "David Bagstevold"}
+]
+
+[project]                   
+name            = "pc-pipeline"
+version         = "0.1.0"
+description     = "Machine Learning for Identifying Prostate Cancer"
+readme          = "README.md"
+requires-python = ">=3.9.22"
+
+dependencies = [
+  "valis-wsi",
+  "opencv-contrib-python",
+  "pyvips",
+  "SimpleITK",
+  "tifffile",
+  "imagecodecs",
+  "scikit-image",
+  "PyYAML",
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "matplotlib-inline",
+  "torch",
+  "imageio",
+  "albumentations",
+  "segmentation_models_pytorch",
+  "snakemake>=5.2",
+  "pulp<2.7",
+  "pillow",
+  "tqdm"
+]
+
+[project.scripts]
+init = "src.automation_scripts.init.py:init"
+associate-biopsies = "src.automation_scripts.run_associate_biopsies.py:run_associate_biopsies"
+register = "src.automation_scripts.run_registration.py:run_registration"
+binary_masks = "src.automation_scripts.run_mask_generation.py:run_mask_generation"
+patches = "src.automation_scripts.run_patch_generation.py:run_patch_generation"
+
+
+#SNAKEMAKE
+associate-biopsies_smk = "src.snakemake.associate_biopsies_smk:associate_biopsies"
+
+[tool.setuptools]
+package-dir = { "" = "."} 
+
+[tool.setuptools.packages.find]
+where   = ["."]
+exclude = ["tests*"]

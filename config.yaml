@@ -1,0 +1,32 @@
+data_paths:
+  raw_scans: data/raw_scans
+  patients: data/patients
+  training: data/training
+  cell_annotations: data/training/cell_annotations
+  tumor_annotations: data/training/tumor_annotations
+  tumor_labels: data/training/tumor_labels
+  cell_labels: data/training/cell_labels
+  training_data: data/training/training_data
+  masks: data/training/masks
+  images: data/training/images
+  patch_level: data/training/patch_level_
+
+model:
+  saved_model: src/model/saved_model/ciga.kpt
+  cell_model: src/model/saved_model/cell_model.pth
+  tumor_model: src/model/saved_model/tumor_model.pth
+
+
+patient:
+  biopsies: biopsies
+  metadata_registered: metadata_registered
+  registered: registered
+  non_rigid_overlap_biopsy: metadata_registered/overlaps/_non_rigid_overlap.png
+  binary_tissue_masks: binary_tissue_masks
+  tissue_mask: binary_tissue_masks/tissue_mask.png
+  patches: patches
+  HE_patches: patches/HE_patch
+  ki67_patches: patches/ki_67
+  psa_patches: patches/psa
+  binary_mask_patch: patches/binary_mask
+  patches_metadata: patches_metadata
